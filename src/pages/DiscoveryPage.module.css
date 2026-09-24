@@ -43,3 +43,11 @@
 }
 .heading { font-size: 1.35rem; font-weight: 700; }
 .empty { padding: 3rem 1rem; text-align: center; color: var(--text-muted); }
+
+
+
+.controlsRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

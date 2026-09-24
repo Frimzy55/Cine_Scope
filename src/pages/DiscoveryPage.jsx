@@ -34,19 +34,23 @@ export default function DiscoveryPage() {
 
   return (
     <div className={styles.page}>
-      <GenreChips
-        genres={genres.data?.genres ?? []}
-        selected={genreIds}
-        onChange={setGenreIds}
-        disabled={showingSearch}
-      />
-
-      <div className={styles.header}>
-        <h2 className={styles.heading}>
-          {showingSearch ? `Results for “${query}”` : ''}
-        </h2>
-        <SortControls value={sortBy} onChange={setSortBy} disabled={showingSearch} />
+      <div className={styles.controlsRow}>
+        <GenreChips
+          genres={genres.data?.genres ?? []}
+          selected={genreIds}
+          onChange={setGenreIds}
+          disabled={showingSearch}
+        />
+        <SortControls
+          value={sortBy}
+          onChange={setSortBy}
+          disabled={showingSearch}
+        />
       </div>
+
+      {showingSearch && (
+        <h2 className={styles.heading}>Results for “{query}”</h2>
+      )}
 
       {results.error && (
         <ErrorState message={results.error.message} onRetry={results.reload} />

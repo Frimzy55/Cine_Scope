@@ -1,7 +1,19 @@
 import styles from './GenreChips.module.css';
 
+// TMDB genre IDs for the ones you want to keep
+const ALLOWED_GENRE_IDS = [
+  28,     // Action
+  878,    // Science Fiction
+  18,     // Drama
+  35,     // Comedy
+  27,     // Horror
+];
+
 export default function GenreChips({ genres, selected, onChange, disabled = false }) {
   if (!genres.length) return null;
+
+  const visibleGenres = genres.filter((g) => ALLOWED_GENRE_IDS.includes(g.id));
+  if (!visibleGenres.length) return null;
 
   const toggle = (id) => {
     if (disabled) return;
@@ -14,7 +26,7 @@ export default function GenreChips({ genres, selected, onChange, disabled = fals
 
   return (
     <div className={styles.chips} role="group" aria-label="Filter by genre">
-      {genres.map((g) => {
+      {visibleGenres.map((g) => {
         const active = selected.includes(g.id);
         return (
           <button

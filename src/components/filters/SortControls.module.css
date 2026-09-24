@@ -1,17 +1,68 @@
-.wrap { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; }
-.label { color: var(--text-muted); }
+.wrap {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0.75rem 0;
+  
+}
+
+.label {
+  color: var(--text-muted);
+  margin-right: 0.4rem;   
+}
+
 .select {
-  padding: 0.4rem 0.6rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--bg-elevated);
+  padding: 0;
+  border: none;
+  background: transparent;
   color: var(--text);
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0;      /* ← reset text indent */
+  width: auto;         /* ← let it size to content */
 }
-.select:disabled { opacity: 0.5; cursor: not-allowed; }
+.select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .dir {
-  padding: 0.4rem 0.7rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--bg-elevated);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: inherit;
+  cursor: pointer;
+  transition: color 0.15s;
 }
-.dir:disabled { opacity: 0.5; cursor: not-allowed; }
+.dir:hover:not(:disabled) {
+  color: var(--accent);
+}
+.dir:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.dir:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+.sortControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+}

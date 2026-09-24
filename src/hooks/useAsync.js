@@ -6,13 +6,13 @@ export function useAsync(asyncFn, deps = []) {
     loading: true,
     error: null,
   });
-  
+
   const fnRef = useRef(asyncFn);
   useEffect(() => {
     fnRef.current = asyncFn;
   });
 
-  // Bump this to force a reload
+
   const [nonce, setNonce] = useState(0);
   const reload = useCallback(() => setNonce((n) => n + 1), []);
 

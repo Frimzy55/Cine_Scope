@@ -105,13 +105,13 @@ export default function MovieDetailPanel({ movieId, onClose }) {
               </div>
             </header>
 
-            {/* -------- OVERVIEW -------- */}
+            
             <section className={styles.section}>
               <h3>Overview</h3>
               <ReadMore text={d.overview || 'No overview available.'} />
             </section>
 
-            {/* -------- CAST -------- */}
+            
             {credits.loading && (
               <section className={styles.section}>
                 <h3>Cast</h3>
@@ -126,7 +126,7 @@ export default function MovieDetailPanel({ movieId, onClose }) {
               </section>
             )}
 
-            {/* -------- SAVE -------- */}
+            
             <div className={styles.actions}>
               <WatchlistToggle
                 movie={{

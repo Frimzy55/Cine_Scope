@@ -84,11 +84,11 @@ export default function MovieCard({
           className={styles.rating}
         />
 
-        {/* Dim overlay — only rendered when the remove button is needed */}
+        
         {showRemoveButton && <span className={styles.overlay} aria-hidden="true" />}
       </button>
 
-      {/* Sibling of posterBtn, absolutely positioned over the poster */}
+      
       {showRemoveButton && (
         <button
           type="button"

@@ -7,7 +7,7 @@ export default function MovieGrid({
   loading,
   onSelect,
   selectedId,
-  showRemoveButton = false,   // 👈 add this
+  showRemoveButton = false,   
   skeletonCount = 8,
 }) {
   if (loading) {
@@ -28,7 +28,7 @@ export default function MovieGrid({
           movie={m}
           onSelect={onSelect}
           isSelected={selectedId === m.id}
-          showRemoveButton={showRemoveButton}   // 👈 forward it
+          showRemoveButton={showRemoveButton}   
         />
       ))}
     </div>

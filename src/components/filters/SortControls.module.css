@@ -24,8 +24,8 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  text-indent: 0;      /* ← reset text indent */
-  width: auto;         /* ← let it size to content */
+  text-indent: 0;      
+  width: auto;        
 }
 .select:focus-visible {
   outline: 2px solid var(--accent);

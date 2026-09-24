@@ -1,12 +1,12 @@
 import styles from './GenreChips.module.css';
 
-// TMDB genre IDs for the ones you want to keep
+
 const ALLOWED_GENRE_IDS = [
-  28,     // Action
-  878,    // Science Fiction
-  18,     // Drama
-  35,     // Comedy
-  27,     // Horror
+  28,    
+  878,    
+  18,     
+  35,     
+  27,     
 ];
 
 export default function GenreChips({ genres, selected, onChange, disabled = false }) {

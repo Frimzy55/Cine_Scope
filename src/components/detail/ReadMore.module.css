@@ -1,0 +1,7 @@
+.text { color: var(--text); line-height: 1.6; }
+.btn {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}

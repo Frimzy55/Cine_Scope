@@ -1,0 +1,166 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(420px, 100%);
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+.close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 1rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.poster {
+  width: 180px;
+  max-width: 60%;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  background: var(--bg-elevated);
+}
+
+.meta {
+  width: 100%;
+  min-width: 0;
+}
+
+.title {
+  font-size: 1.35rem;
+  margin: 0 0 0.25rem;
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0 0 0.5rem;
+}
+
+/* Single row: ★ • year • runtime • genres */
+.statsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.sep {
+  opacity: 0.45;
+  user-select: none;
+  line-height: 1;
+}
+
+.statRating {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+}
+
+.genre {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.section h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+
+
+.actions {
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  width: 100%;
+}
+
+
+
+.actions {
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

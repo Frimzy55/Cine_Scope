@@ -22,7 +22,8 @@ export default function WatchlistPage() {
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <h1>Your Watchlist</h1>
+        <h5>our watchlist</h5>
+        <h3>Your Watchlist</h3>
         <p className={styles.count}>
           {items.length} {items.length === 1 ? 'film' : 'films'} saved
         </p>

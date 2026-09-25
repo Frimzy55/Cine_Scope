@@ -24,9 +24,9 @@ export default function WatchlistToggle({ movie, variant = 'card' }) {
       type="button"
       className={`${styles.btn} ${styles[variant]} ${saved ? styles.saved : ''}`}
       onClick={handleClick}
-      aria-label={saved ? 'Remove from watchlist' : 'Save to watchlist'}
+      aria-label={saved ? 'Remove from watchlist' : '  Save to watchlist'}
       aria-pressed={saved}
-      title={saved ? 'Saved' : 'Save to watchlist'}
+      title={saved ? 'Saved' : '  Save to watchlist'}
     >
       {saved ? <FaBookmark /> : <FiBookmark />}
       {variant === 'panel' && (

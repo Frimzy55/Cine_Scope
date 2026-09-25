@@ -5,15 +5,16 @@
   color: var(--text-muted);
   transition: color 0.15s, background 0.15s, transform 0.15s;
 }
-.btn:hover { color: var(--rating); }
 
+.btn:hover {
+  color: var(--rating);
+}
 
 .card {
   font-size: 1.15rem;
   line-height: 1;
   padding: 0.25rem;
 }
-
 
 .corner {
   position: absolute;
@@ -32,37 +33,57 @@
   backdrop-filter: blur(4px);
   transition: background 0.15s, color 0.15s, transform 0.15s;
 }
+
 .corner:hover {
   background: rgba(0, 0, 0, 0.85);
   color: var(--rating);
   transform: scale(1.08);
 }
+
 .corner.saved {
   color: var(--rating);
   background: rgba(0, 0, 0, 0.8);
 }
 
-
 .panel {
+  width: 100%;
   padding: 0.55rem 1rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--bg-elevated);
+  border: 1px solid #facc15;
+  background: #facc15;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text);
+  color: #111827;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
 }
+
 .panel:hover {
-  border-color: var(--rating);
-  background: var(--bg-card);
-  color: var(--rating);
+  border-color: #eab308;
+  background: #eab308;
+  color: #111827;
 }
 
-.saved { color: var(--rating); }
+.saved {
+  color: #111827;
+}
+
 .saved.panel {
-  border-color: var(--rating);
-  color: var(--rating);
+  border-color: #facc15;
+  color: #111827;
 }
-.saved.panel .label { color: var(--rating); }
 
-.label { font-size: 0.9rem; }
+.saved.panel .label {
+  color: #111827;
+}
+
+.label {
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -8,7 +8,11 @@ export default function SearchInput() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const urlQuery = location.pathname === '/' ? params.get('q') ?? '' : '';
+  const urlQuery =
+    location.pathname === '/'
+      ? params.get('q') ?? ''
+      : '';
+
   const [value, setValue] = useState(urlQuery);
 
   useEffect(() => {
@@ -17,39 +21,56 @@ export default function SearchInput() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     const q = value.trim();
+
     if (!q) {
       navigate('/');
       return;
     }
+
+    
     navigate(`/?q=${encodeURIComponent(q)}`);
   }
 
   function handleChange(e) {
-    const next = e.target.value;
-    setValue(next);
+    setValue(e.target.value);
   }
 
   useEffect(() => {
+    
     if (location.pathname !== '/') return;
+
     const trimmed = value.trim();
     const current = params.get('q') ?? '';
+
     if (trimmed === current) return;
 
     const id = setTimeout(() => {
       if (trimmed) {
-        navigate(`/?q=${encodeURIComponent(trimmed)}`, { replace: true });
+        navigate(
+          `/?q=${encodeURIComponent(trimmed)}`,
+          { replace: true }
+        );
       } else {
         navigate('/', { replace: true });
       }
     }, 350);
 
     return () => clearTimeout(id);
-  }, [value, location.pathname]);
+  }, [value, location.pathname, params, navigate]);
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit} role="search">
-      <FiSearch className={styles.icon} aria-hidden="true" />
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit}
+      role="search"
+    >
+      <FiSearch
+        className={styles.icon}
+        aria-hidden="true"
+      />
+
       <input
         className={styles.input}
         type="search"

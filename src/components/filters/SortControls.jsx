@@ -1,22 +1,23 @@
-import { FiArrowDown, FiArrowUp } from 'react-icons/fi';
 import styles from './SortControls.module.css';
 
 const OPTIONS = [
-  { value: 'popularity', label: 'Popularity' },
-  { value: 'vote_average', label: 'Rating' },
-  { value: 'primary_release_date', label: 'Release Date' },
+  { value: 'popularity', label: 'Popularity ↓' },
+  { value: 'vote_average', label: 'Rating ↓' },
+  { value: 'primary_release_date', label: 'Release Date ↓' },
 ];
 
 export default function SortControls({ value, onChange, disabled = false }) {
   const [field, direction] = value.split('.');
 
-  const handleField = (e) => onChange(`${e.target.value}.${direction}`);
-  const toggleDir = () =>
-    onChange(`${field}.${direction === 'desc' ? 'asc' : 'desc'}`);
+  const handleField = (e) => {
+    onChange(`${e.target.value}.${direction}`);
+  };
 
   return (
     <div className={styles.wrap}>
-      <label htmlFor="sort-field" className={styles.label}>Sort:</label>
+      <label htmlFor="sort-field" className={styles.label}>
+        Sort by:
+      </label>
 
       <div className={styles.sortControl}>
         <select
@@ -32,16 +33,6 @@ export default function SortControls({ value, onChange, disabled = false }) {
             </option>
           ))}
         </select>
-
-        <button
-          type="button"
-          onClick={toggleDir}
-          className={styles.dir}
-          disabled={disabled}
-          aria-label="Toggle sort direction"
-        >
-          {direction === 'desc' ? <FiArrowDown /> : <FiArrowUp />}
-        </button>
       </div>
     </div>
   );

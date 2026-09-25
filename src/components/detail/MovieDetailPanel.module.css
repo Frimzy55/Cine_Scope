@@ -1,6 +1,9 @@
 .overlay {
   position: fixed;
-  inset: 0;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 100;
 }
 
@@ -18,38 +21,74 @@
   width: min(420px, 100%);
   background: var(--bg);
   border-left: 1px solid var(--border);
-  overflow-y: auto;
+  overflow: hidden;
   animation: slideIn 0.25s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes slideIn {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 .close {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  width: 36px;
-  height: 36px;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--bg-elevated);
   color: var(--text);
   border: none;
   cursor: pointer;
   z-index: 2;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .center {
   display: flex;
   justify-content: center;
-  padding: 3rem 1rem;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
 }
 
+
+
 .content {
-  padding: 1.5rem;
+  padding: 0.8rem 1.25rem 0;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
 }
 
 
@@ -58,17 +97,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
 }
 
 .poster {
-  width: 180px;
-  max-width: 60%;
+  width: 100%;
+  max-width: 100%;
+  height: 180px;
   border-radius: var(--radius);
   flex-shrink: 0;
-  aspect-ratio: 2 / 3;
   object-fit: cover;
   background: var(--bg-elevated);
 }
@@ -76,29 +114,31 @@
 .meta {
   width: 100%;
   min-width: 0;
+  text-align: left;
 }
 
 .title {
-  font-size: 1.35rem;
-  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+  margin: 0 0 0.2rem;
 }
 
 .tagline {
   color: var(--text-muted);
   font-style: italic;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.3rem;
+  font-size: 0.8rem;
 }
 
 .statsRow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  justify-content: flex-start;
+  gap: 0.3rem;
   color: var(--text-muted);
-  font-size: 0.85rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
 }
 
 .stat {
@@ -122,44 +162,49 @@
 .genre {
   display: inline-flex;
   align-items: center;
-  font-size: 0.72rem;
-  padding: 0.15rem 0.55rem;
+  font-size: 0.65rem;
+  padding: 0.08rem 0.4rem;
   border-radius: 999px;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   white-space: nowrap;
-  line-height: 1.4;
+  line-height: 1.2;
   color: var(--text);
 }
 
 
 
 .section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.6rem;
+  flex-shrink: 0;
 }
 
 .section h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+}
+
+.section p {
+  margin: 0;
+  font-size: 0.76rem;
+  line-height: 1.3;
 }
 
 
 
 .actions {
-  margin-top: 0.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
-  display: flex;
-  width: 100%;
-}
-
-
-
-.actions {
-  margin-top: 0.5rem;
-  padding-top: 1rem;
+  margin-top: auto;
+  padding: 0.65rem 0 0.75rem;
   border-top: 1px solid var(--border);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
+  background: var(--bg);
+}
+
+.actions button {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.55rem 1rem;
 }
